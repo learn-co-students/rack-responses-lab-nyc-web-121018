@@ -5,10 +5,12 @@ class Application
     time = Time.now.strftime("%H:%M")
     time_hour = time.split(':').first.to_i
 
-    if time_hour < 12
-      resp.write("Good Morning!")
-    else
+    # For future reference, above code is also possible via Time.now.hour
+
+    if time_hour >= 12
       resp.write("Good Afternoon!")
+    else
+      resp.write("Good Morning!")
     end
 
     resp.finish
